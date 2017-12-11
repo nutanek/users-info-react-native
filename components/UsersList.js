@@ -4,8 +4,7 @@ import {
     Text,
     View,
     Button,
-    ScrollView,
-    TouchableHighlight
+    ScrollView
 } from 'react-native';
 import axios from 'axios'
 import UserItem from './UserItem'

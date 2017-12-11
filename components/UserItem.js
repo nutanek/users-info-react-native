@@ -7,7 +7,7 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-export default class Post extends React.Component {
+export default class UserItem extends React.Component {
     constructor(props) {
         super(props)
     }
