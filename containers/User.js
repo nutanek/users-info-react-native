@@ -45,7 +45,6 @@ export default class User extends React.Component {
 const styles = StyleSheet.create({
     body: {
         flex: 1,
-        backgroundColor: '#FFCC00',
         alignItems: 'flex-start'
     },
     avatarWrapper: {
@@ -53,7 +52,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingTop: 10,
         paddingBottom: 10,
-        backgroundColor: '#FFFFFF',
     },
     avatar: {
         borderRadius: 200,

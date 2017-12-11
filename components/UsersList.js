@@ -32,16 +32,22 @@ export default class UsersList extends React.Component {
     render() {
         return (
             <View style={styles.body}>
-                <ScrollView contentContainerStyle={styles.contentContainer} style={styles.scroll}>
-                    {
-                        this.state.users.map( (user, index) =>
-                            <UserItem 
-                                key={index} 
-                                user={user} 
-                                nav={this.props.nav} />
-                        )
-                    }
-                </ScrollView>
+                {
+                    this.state.users.length === 0 ? (
+                        <Text style={styles.loading}>Loading..</Text>
+                    ) : (
+                        <ScrollView contentContainerStyle={styles.contentContainer} style={styles.scroll}>
+                            {
+                                this.state.users.map( (user, index) =>
+                                    <UserItem 
+                                        key={index} 
+                                        user={user} 
+                                        nav={this.props.nav} />
+                                )
+                            }
+                        </ScrollView>
+                    )
+                }
             </View>
         )
     }
@@ -62,5 +68,8 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         paddingLeft: 10,
         paddingRight: 10,
+    },
+    loading: {
+        marginTop: 20
     }
 });
