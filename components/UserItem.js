@@ -14,23 +14,16 @@ export default class Post extends React.Component {
         super(props)
     }
 
-    _showMoreInfo = (username) => {
-        Alert.alert('username:', username)
-    }
-
     render() {
         let user = this.props.user
-        const img = [
-            'https://www.physics.rutgers.edu/grad/prizes/null.gif'
-        ]
         return (
-            <TouchableHighlight onPress={()=>this._showMoreInfo(user.username)}>
+            <TouchableHighlight>
                 <View style={styles.postWrapper}>
-                    <Image style={styles.avatar} source={{uri: img[0]}} />
+                    <Image style={styles.avatar} source={{uri: user.avatar_url}} />
                     <View style={styles.info}>
                         <Text style={styles.name}>{user.login}</Text>
-                        <Text>Email: {user.type}</Text>
-                        <Text>Tel: {user.id}</Text>
+                        <Text>{user.html_url}</Text>
+                        <Text>ID: {user.id}</Text>
                     </View>
                 </View>
             </TouchableHighlight>
