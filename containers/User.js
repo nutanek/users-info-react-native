@@ -12,7 +12,11 @@ export default class User extends React.Component {
         const info = state.params.info
         let userInfo = {
             Name: [info.name.last, info.name.first].join(" "),
-            Email: info.email
+            Gender: info.gender,
+            Nationality: info.nat, 
+            Email: info.email,
+            Address: [info.location.street, info.location.city, info.location.state].join(', '),
+            Phone: info.phone,
         }
         return (
             <View style={styles.body}>
@@ -24,8 +28,11 @@ export default class User extends React.Component {
                     </View>
                     <View style={styles.detail}>
                         {
-                            Object.keys(userInfo).map((key, value) => 
-                                <InfoItem />
+                            Object.keys(userInfo).map((key, index) => 
+                                <InfoItem 
+                                    key={index}
+                                    title={key}
+                                    value={userInfo[key]}/>
                             )
                         }  
                     </View>
