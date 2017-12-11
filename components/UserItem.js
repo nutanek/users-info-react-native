@@ -16,8 +16,9 @@ export default class Post extends React.Component {
 
     render() {
         let user = this.props.user
+        const {navigate} = this.props.nav;
         return (
-            <TouchableHighlight>
+            <TouchableHighlight onPress={() => navigate('InfoPage', {pid: user.login})}>
                 <View style={styles.postWrapper}>
                     <Image style={styles.avatar} source={{uri: user.avatar_url}} />
                     <View style={styles.info}>

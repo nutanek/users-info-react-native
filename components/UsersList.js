@@ -35,7 +35,10 @@ export default class UsersList extends React.Component {
                 <ScrollView contentContainerStyle={styles.contentContainer} style={styles.scroll}>
                     {
                         this.state.users.map( (user, index) =>
-                            <UserItem key={index} user={user} />
+                            <UserItem 
+                                key={index} 
+                                user={user} 
+                                nav={this.props.nav} />
                         )
                     }
                 </ScrollView>
