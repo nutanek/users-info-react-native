@@ -1,24 +1,23 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView } from 'react-native';
+import Header from './../components/Header'
 
 export default class Home extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text>sssssssssss</Text>
+            <View style={styles.body}>
+                <Header title="Users List" />
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    body: {
+        paddingTop: 0,
+        alignSelf: 'stretch',
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#ebebeb'
-    },
-    buttonText: {
-        color: "#FFFFFF"
+        backgroundColor: '#FFFFFF',
+        alignItems: 'center'
     }
-})
+});
