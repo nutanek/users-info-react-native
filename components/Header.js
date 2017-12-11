@@ -14,6 +14,7 @@ export default class Header extends React.Component {
 const styles = StyleSheet.create({
     header: {
         paddingTop: 10,
+        paddingBottom: 10
     },
     title: {
         fontSize: 20,
