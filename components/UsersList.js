@@ -8,6 +8,7 @@ import {
     TouchableHighlight
 } from 'react-native';
 import axios from 'axios'
+import UserItem from './UserItem'
 
 export default class UsersList extends React.Component {
     constructor(props) {
@@ -30,17 +31,15 @@ export default class UsersList extends React.Component {
 
     render() {
         return (
-                <View style={styles.body}>
-                    <ScrollView contentContainerStyle={styles.contentContainer} style={styles.scroll}>
-                        {
-                            this.state.users.map( (user, index) =>
-                                <Text key={index}>
-                                    {user.login}
-                                </Text>
-                            )
-                        }
-                    </ScrollView>
-                </View>
+            <View style={styles.body}>
+                <ScrollView contentContainerStyle={styles.contentContainer} style={styles.scroll}>
+                    {
+                        this.state.users.map( (user, index) =>
+                            <UserItem key={index} user={user} />
+                        )
+                    }
+                </ScrollView>
+            </View>
         )
     }
 }
