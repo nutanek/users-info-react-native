@@ -1,17 +1,24 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView } from 'react-native';
-import Header from './../components/Header'
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class User extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: `${navigation.state.params.username}'s info`
+        title: `${navigation.state.params.info.name.last}'s info`
     })
 
     render() {
         const {state} = this.props.navigation
+        const info = state.params.info
         return (
             <View style={styles.body}>
-                <Text>{state.params.username}</Text>
+                <View style={styles.avatarWrapper}>
+                    <Image 
+                        style={styles.avatar} 
+                        source={{uri: info.picture.large}} />                  
+                </View>
+                <View style={styles.detail}>
+                    <Text>{info.name.first}</Text>   
+                </View>
             </View>
         )
     }
@@ -19,10 +26,22 @@ export default class User extends React.Component {
 
 const styles = StyleSheet.create({
     body: {
-        paddingTop: 0,
+        padding: 20,
         alignSelf: 'stretch',
         flex: 1,
+        backgroundColor: '#FFCC00',
+        alignItems: 'flex-start'
+    },
+    avatarWrapper: {
         backgroundColor: '#FFFFFF',
-        alignItems: 'center'
+    },
+    avatar: {
+        borderRadius: 200,
+        width: 200,
+        height: 200,
+    },
+    detail: {
+        flex: 1,
+        alignItems: 'flex-start'
     }
 });

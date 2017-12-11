@@ -20,9 +20,9 @@ export default class UsersList extends React.Component {
 
     componentDidMount() {
         var self = this;
-        axios.get('https://api.github.com/users').then(response => {
+        axios.get('https://randomuser.me/api/?results=10&nat=NL,NZ,TR,US').then(response => {
             self.setState({
-                users: response.data
+                users: response.data.results
             })
         }).catch(error => {
             console.log(error);

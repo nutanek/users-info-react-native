@@ -4,8 +4,6 @@ import {
     Text,
     View,
     Image,
-    Modal,
-    Alert,
     TouchableHighlight
 } from 'react-native';
 
@@ -18,13 +16,13 @@ export default class Post extends React.Component {
         let user = this.props.user
         const {navigate} = this.props.nav;
         return (
-            <TouchableHighlight onPress={() => navigate('InfoPage', {username: user.login})}>
-                <View style={styles.postWrapper}>
-                    <Image style={styles.avatar} source={{uri: user.avatar_url}} />
+            <TouchableHighlight onPress={() => navigate('InfoPage', {info: user})}>
+                <View style={styles.userWrapper}>
+                    <Image style={styles.avatar} source={{uri: user.picture.medium}} />
                     <View style={styles.info}>
-                        <Text style={styles.name}>{user.login}</Text>
-                        <Text>{user.html_url}</Text>
-                        <Text>ID: {user.id}</Text>
+                        <Text style={styles.name}>{user.name.last} {user.name.first}</Text>
+                        <Text>{user.email}</Text>
+                        <Text>Nat: {user.nat}</Text>
                     </View>
                 </View>
             </TouchableHighlight>
@@ -33,7 +31,7 @@ export default class Post extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    postWrapper: {
+    userWrapper: {
         flexDirection: 'row',
         marginBottom: 10,
         paddingTop: 5,
@@ -48,7 +46,6 @@ const styles = StyleSheet.create({
     avatar: {
         width: 80,
         height: 80,
-
     },
     info: {
         paddingLeft: 10,
